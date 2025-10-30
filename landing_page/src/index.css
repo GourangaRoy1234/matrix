@@ -2,6 +2,7 @@
 
 @import "tailwindcss";
 
+
 @font-face {
     font-family: "Modern Negra";
     src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
