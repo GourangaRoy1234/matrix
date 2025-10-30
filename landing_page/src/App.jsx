@@ -9,6 +9,7 @@ const App = () => {
  return (
 	<main>
 	 <Navbar />
+  
    
 	 
 	</main>
