@@ -1,0 +1,75 @@
+/* --- GLITCH KEYFRAMES (Your Provided Code) --- */
+
+@keyframes glitch1 {
+  0% { clip: rect(24px, 9999px, 56px, 0); transform: translate(-2px, -2px); }
+  20% { clip: rect(12px, 9999px, 40px, 0); transform: translate(2px, 2px); }
+  40% { clip: rect(30px, 9999px, 60px, 0); transform: translate(-1px, 1px); }
+  60% { clip: rect(15px, 9999px, 45px, 0); transform: translate(1px, -1px); }
+  80% { clip: rect(0px, 9999px, 60px, 0); transform: translate(0px, 0px); }
+  100% { clip: rect(24px, 9999px, 56px, 0); transform: translate(-2px, -2px); }
+}
+
+@keyframes glitch2 {
+  0% { clip: rect(12px, 9999px, 40px, 0); transform: translate(1px, 1px); }
+  20% { clip: rect(24px, 9999px, 56px, 0); transform: translate(-1px, -1px); }
+  40% { clip: rect(0px, 9999px, 60px, 0); transform: translate(2px, 0px); }
+  60% { clip: rect(15px, 9999px, 45px, 0); transform: translate(-2px, 1px); }
+  80% { clip: rect(12px, 9999px, 40px, 0); transform: translate(1px, -1px); }
+  100% { clip: rect(24px, 9999px, 56px, 0); transform: translate(0px, 0px); }
+}
+
+/* --- GLITCH TEXT CLASS --- */
+
+.glitch {
+  position: relative;
+  color: #0f0; /* Green primary color */
+  font-size: 4em; /* Adjust size as needed */
+  text-transform: uppercase;
+  font-family: monospace;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0; /* Important: Align before and after exactly over the main text */
+  width: 100%;
+  overflow: hidden;
+}
+
+.glitch::before {
+  text-shadow: 2px 0 #0ff; /* Cyan shadow */
+  /* Use alternate-reverse for a more jarring effect */
+  animation: glitch1 2s infinite linear alternate-reverse; 
+}
+
+.glitch::after {
+  text-shadow: -2px 0 #f0f; /* Magenta shadow */
+  animation: glitch2 3s infinite linear alternate-reverse;
+}
+
+/* --- GLITCH BUTTON STYLING (New) --- */
+
+.glitch-button {
+  background-color: transparent;
+  color: #0ff; /* Cyan color for the button */
+  border: 2px solid #0f0; /* Green border */
+  padding: 10px 25px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-family: monospace;
+  cursor: pointer;
+  box-shadow: 0 0 5px #0ff, 0 0 10px #0f0; /* subtle glow */
+  transition: all 0.3s ease;
+  position: relative; /* Needed for hover effect */
+  overflow: hidden;
+}
+
+/* Glitch-inspired hover effect: border pulse and text flash */
+.glitch-button:hover {
+  color: #f0f; /* Flash to magenta */
+  border-color: #f0f;
+  box-shadow: 0 0 8px #f0f, 0 0 15px #0ff; 
+  transform: scale(1.05); /* subtle push effect */
+}
